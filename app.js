@@ -1,15 +1,19 @@
-// INSTALL EXPRESS
+
 const express=require('express');
 const app=express();
+require('dotenv').config(); 
 
-// INSTALL HTTPS
+const apiKey = process.env.API_KEY;  
+
+
+
 const https=require('https');
 
-// GET
+
 
 app.get("/", function(req,res){
 
-const address= "https://api.openweathermap.org/data/2.5/weather?units=metric&q=germiston&APPID=a541e86f1d8ca4d60c778daf6cef8223";
+const address= "https://api.openweathermap.org/data/2.5/weather?units=metric&q=germiston&APPID=${apiKey}";
     
 https.get(address, function(response){
 console.log(response.statusCode);
